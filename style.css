@@ -1,0 +1,353 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    color: white;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.game-area {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.baseball-field {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    height: 500px;
+    background: linear-gradient(45deg, #228B22, #32CD32);
+    border-radius: 50% 50% 0 0;
+    border: 8px solid #8B4513;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.pitcher-mound {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    background: #D2B48C;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.ball {
+    font-size: 2rem;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.batter-box {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 10;
+}
+
+.batter {
+    font-size: 3rem;
+}
+
+.bat {
+    font-size: 2.5rem;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+    user-select: none;
+}
+
+.bat:hover {
+    transform: scale(1.1);
+}
+
+.bat.swing {
+    animation: swing 0.5s ease-in-out;
+}
+
+@keyframes swing {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(-45deg); }
+    50% { transform: rotate(-90deg); }
+    75% { transform: rotate(-45deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.outfield {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    text-align: center;
+    max-width: 400px;
+    transform: scale(0);
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.info-card.show {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.card-content h3 {
+    color: #2a5298;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.card-content p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.instruction {
+    font-style: italic;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.score-board {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.score-item {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.score-item .label {
+    font-weight: bold;
+    color: #2a5298;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.score-item .value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.intro-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.intro-item {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.intro-item.revealed {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.intro-item h3 {
+    color: #2a5298;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.intro-item p {
+    line-height: 1.6;
+    color: #555;
+}
+
+.controls {
+    text-align: center;
+}
+
+.reset-button {
+    background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.reset-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+.reset-button:active {
+    transform: translateY(0);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    .baseball-field {
+        height: 400px;
+    }
+    
+    .batter {
+        font-size: 2.5rem;
+    }
+    
+    .bat {
+        font-size: 2rem;
+    }
+    
+    .info-card {
+        padding: 20px;
+        margin: 0 15px;
+    }
+    
+    .score-board {
+        gap: 20px;
+    }
+    
+    .score-item {
+        padding: 12px 20px;
+    }
+    
+    .intro-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .baseball-field {
+        height: 350px;
+    }
+    
+    .batter-box {
+        bottom: 15%;
+    }
+    
+    .pitcher-mound {
+        top: 15%;
+    }
+    
+    .score-board {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .score-item {
+        width: 200px;
+    }
+}
+
+/* 애니메이션 효과 */
+.hit-animation {
+    animation: hitEffect 0.8s ease-out;
+}
+
+@keyframes hitEffect {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.ball-hit {
+    animation: ballFly 1s ease-out forwards;
+}
+
+@keyframes ballFly {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+    100% {
+        transform: translateX(200px) translateY(-150px);
+    }
+}

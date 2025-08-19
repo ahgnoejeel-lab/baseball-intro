@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이정하의 야구 게임 소개</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚾ 이정하의 야구 게임 소개 ⚾</h1>
+            <p class="subtitle">배트를 휘둘러서 나를 알아보세요!</p>
+        </header>
+
+        <div class="game-area">
+            <div class="baseball-field">
+                <div class="pitcher-mound">
+                    <div class="ball" id="ball">⚾</div>
+                </div>
+                <div class="batter-box">
+                    <div class="batter" id="batter">🏃‍♂️</div>
+                    <div class="bat" id="bat">🏏</div>
+                </div>
+                <div class="outfield">
+                    <div class="info-card" id="info-card">
+                        <div class="card-content">
+                            <h3>안녕하세요!</h3>
+                            <p>배트를 휘둘러서 저에 대해 알아보세요!</p>
+                            <p class="instruction">마우스로 배트를 클릭하거나 터치하세요</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="score-board">
+            <div class="score-item">
+                <span class="label">타수:</span>
+                <span class="value" id="swing-count">0</span>
+            </div>
+            <div class="score-item">
+                <span class="label">안타:</span>
+                <span class="value" id="hit-count">0</span>
+            </div>
+            <div class="score-item">
+                <span class="label">진행률:</span>
+                <span class="value" id="progress">0/6</span>
+            </div>
+        </div>
+
+        <div class="intro-list" id="intro-list">
+            <div class="intro-item" data-index="0">
+                <h3>👋 이름</h3>
+                <p>안녕하세요! 저는 <strong>이정하</strong>입니다.</p>
+            </div>
+            <div class="intro-item" data-index="1">
+                <h3>💼 직장</h3>
+                <p>인사조직실 글로벌교육팀에서 일하고 있습니다.</p>
+            </div>
+            <div class="intro-item" data-index="2">
+                <h3>📊 전공</h3>
+                <p>통계학을 전공했고, 테크에 관심이 많습니다.</p>
+            </div>
+            <div class="intro-item" data-index="3">
+                <h3>💕 관심사</h3>
+                <p>심리학을 전공해서 연애 프로그램도 좋아합니다.</p>
+            </div>
+            <div class="intro-item" data-index="4">
+                <h3>🏊‍♂️ 싫어하는 것</h3>
+                <p>물놀이는 안좋아합니다.</p>
+            </div>
+            <div class="intro-item" data-index="5">
+                <h3>🍎 아침 습관</h3>
+                <p>아침에는 사과를 먹습니다.</p>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button id="reset-btn" class="reset-button">게임 다시 시작</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
